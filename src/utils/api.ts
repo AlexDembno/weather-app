@@ -13,7 +13,7 @@ export const getWeather = async (
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
         city
-      )}&appid=${API_KEY}`
+      )}&units=metric&appid=${API_KEY}`
     );
 
     if (response.status === 404) {

@@ -5,18 +5,23 @@ import { useDebouncedValue } from "@/hooks/useDebounce";
 
 export const SearchInput = ({
   setSearchCity,
+  successTrigger,
 }: {
   setSearchCity: React.Dispatch<React.SetStateAction<string>>;
+  successTrigger: boolean;
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearchTerm = useDebouncedValue(searchTerm, 500);
 
   useEffect(() => {
-    console.log("debouncedSearchTerm", debouncedSearchTerm);
-    if (debouncedSearchTerm.length > 3) {
+    if (debouncedSearchTerm.trim().length >= 3) {
       setSearchCity(debouncedSearchTerm);
     }
   }, [debouncedSearchTerm, setSearchCity]);
+
+  useEffect(() => {
+    setSearchTerm("");
+  }, [successTrigger]);
 
   return (
     <input
