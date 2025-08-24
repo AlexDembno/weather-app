@@ -11,7 +11,7 @@ export const SearchInput = ({
   successTrigger: boolean;
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const debouncedSearchTerm = useDebouncedValue(searchTerm, 500);
+  const debouncedSearchTerm = useDebouncedValue(searchTerm, 1000);
 
   useEffect(() => {
     if (debouncedSearchTerm.trim().length >= 3) {

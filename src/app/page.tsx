@@ -116,7 +116,7 @@ export default function Home() {
 
         <div
           className="
-         w-full mt-4 text-gray-800 dark:text-white
+          text-gray-800 dark:text-white
           drop-shadow-[2px_2px_4px_rgba(0,0,0,0.7)]
         "
         >
@@ -127,9 +127,19 @@ export default function Home() {
         </div>
 
         {loading && (
-          <p className="mt-4 text-center text-blue-500 motion-safe:animate-pulse">
-            loading...
-          </p>
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <div
+              className="
+        w-5 h-5 rounded-full animate-spin
+        border-4 border-t-transparent
+        border-gray-800 dark:border-white
+        drop-shadow-[2px_2px_4px_rgba(0,0,0,0.7)]
+      "
+            ></div>
+            <span className="text-gray-800 dark:text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.7)]">
+              Loading...
+            </span>
+          </div>
         )}
 
         {error && searchCity.trim().length >= 3 && (
@@ -137,7 +147,7 @@ export default function Home() {
         )}
 
         {weather && (
-          <div className="mt-6 motion-safe:transition-opacity motion-safe:duration-500 motion-safe:animate-fadeIn">
+          <div className="motion-safe:transition-opacity motion-safe:duration-500 motion-safe:animate-fadeIn">
             <WeatherCard weather={weather} />
           </div>
         )}
